@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => ['basic_auth'], 'prefix' => 'v1'], function () {
+    require base_path('src/Backoffice/Buyers/Infrastructure/Http/routes.php');
+    require base_path('src/Backoffice/Transactions/Infrastructure/Http/routes.php');    
 });

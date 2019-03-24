@@ -1,0 +1,151 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Wirecard Api",
+		"_postman_id": "2756b25b-448c-da79-a6ff-80e010f97c96",
+		"description": "It's for Wirecard challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Credit Card payment add",
+			"request": {
+				"url": "{{domain}}/api/v1/transactions/creditcard",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"buyerid\":1, \"waypaymentid\":9, \"amount\":\"150.10\", \"creditcard_details\": {\"holder_name\":\"José\", \"number\":\"88888.988444.11111\", \"expiration_date\":\"2038/05/01\", \"cvv\":\"7777\"}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Slip payment add",
+			"request": {
+				"url": "{{domain}}/api/v1/transactions/slip",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"buyerid\":1, \"waypaymentid\":10, \"amount\":200.10}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Transactions",
+			"request": {
+				"url": "{{domain}}/api/v1/transactions",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"buyerid\":2, \"waypaymentid\":9, \"amount\":4, \"creditcard_details\": {\"holder_name\":\"JOSÉ santos\", \"number\":\"444\", \"expiration_date\":\"2000/05/01\", \"cvv\":\"444\"}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Buyer add",
+			"request": {
+				"url": "{{domain}}/api/v1/buyers",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"clientid\": 2, \"name\":\"Carlos\", \"mail\":\"carlos@gmail.com\",\"cpf\":\"888888\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Buyer save",
+			"request": {
+				"url": "{{domain}}/api/v1/buyers/40",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Francisco Silva\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Credit Card payment by ID",
+			"request": {
+				"url": "{{domain}}/api/v1/transactions/creditcard/258/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"buyerid\":2, \"waypaymentid\":9, \"amount\":4, \"creditcard_details\": {\"holder_name\":\"JOSÉ santos\", \"number\":\"444\", \"expiration_date\":\"2000/05/01\", \"cvv\":\"444\"}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Slip payment by ID",
+			"request": {
+				"url": "{{domain}}/api/v1/transactions/slip/2591/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"buyerid\":2, \"waypaymentid\":9, \"amount\":4, \"creditcard_details\": {\"holder_name\":\"JOSÉ santos\", \"number\":\"444\", \"expiration_date\":\"2000/05/01\", \"cvv\":\"444\"}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

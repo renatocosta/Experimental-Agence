@@ -7,7 +7,28 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-class Controller extends BaseController
-{
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+class Controller extends BaseController {
+
+    use AuthorizesRequests,
+        DispatchesJobs,
+        ValidatesRequests;
+
+    /**
+     *
+     * @var boolean 
+     */
+    protected $success_response = true;
+
+    /**
+     *
+     * @var boolean 
+     */
+    protected $fail_response = false;
+
+    /**
+     *
+     * @var array 
+     */
+    protected $responseData;
+
 }

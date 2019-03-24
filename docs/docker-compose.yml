@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    image: 216254431/gcloud-php
+    ports:
+    - "8080:8080"
+    container_name: backend
+    volumes:
+    - ~/projects/backend:/var/www/backend
+    command: > 
+            bash -c "cd /var/www/backend
+            && php -S 0.0.0.0:8080"
