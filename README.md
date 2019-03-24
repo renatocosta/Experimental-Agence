@@ -1,6 +1,6 @@
-# Wirecard Technical Challenge
+# Agence Technical Challenge
 
-Endpoint: https://wirecardapi.appspot.com
+Endpoint: https://testing-233014.appspot.com
 
 Follow Postman file to import and then run REST services as known as bellow:
 
@@ -48,7 +48,7 @@ MySQL 2nd Gen 5.7
 
 ## Unit testing
 
- dir: /var/www/backend/wirecard
+ dir: /var/www/backend/agence
 
  running: ./vendor/bin/phpunit --testdox
 

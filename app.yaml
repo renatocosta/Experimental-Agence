@@ -14,7 +14,7 @@ env_variables:
   APP_KEY: base64:MMML5a2xeUoOPm4KPKLlUrnJdLz67edC8XCLpAGtVPU=
   # values obtained when configuring your Cloud SQL instance.
   DB_CONNECTION: mysql  
-  DB_HOST: 10.70.32.3
-  DB_DATABASE: wirecard_challenge
-  DB_USERNAME: wirecard
+  DB_HOST: 10.110.240.3
+  DB_DATABASE: testing_agence
+  DB_USERNAME: agence-user
   DB_PASSWORD: hf!3#76g*191
