@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +12,5 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['middleware' => ['basic_auth'], 'prefix' => 'v1'], function () {
-    require base_path('src/Backoffice/Buyers/Infrastructure/Http/routes.php');
-    require base_path('src/Backoffice/Transactions/Infrastructure/Http/routes.php');    
+    require base_path('bundle/Backoffice/Consultant/Infrastructure/Http/routes.php');    
 });

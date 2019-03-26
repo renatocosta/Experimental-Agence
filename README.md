@@ -2,7 +2,7 @@
 
 Endpoint: https://testing-233014.appspot.com
 
-Follow Postman file to import and then run REST services as known as bellow:
+Follow Postman file to import and then run REST services as known as bellow
 
 [docs/WirecardApi.postman_collection](docs/WirecardApi.postman_collection.json) It is for documentation as well.
 

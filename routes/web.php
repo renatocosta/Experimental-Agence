@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function(){
-    echo 4455553333;
-});
+Route::view('/', 'welcome');
 
 Route::get('sandbox/xyzaqqq', function () {
     return env('DB_DATABASE');
