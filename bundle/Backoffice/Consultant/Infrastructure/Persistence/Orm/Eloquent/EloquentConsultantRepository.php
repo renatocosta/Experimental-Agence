@@ -7,7 +7,6 @@ use Backoffice\Consultant\Domain\ValueObject\ConsultantId;
 use Backoffice\Consultant\Domain\Entity\Consultant;
 use Backoffice\Consultant\Infrastructure\Persistence\Orm\Eloquent\ConsultantModel;
 use Backoffice\UserPermissions\Domain\ValueObject\UserTypes;
-use Shared\Application\Request\Common\PaginationUtils;
 
 class EloquentConsultantRepository implements ConsultantRepository {
 
@@ -35,7 +34,7 @@ class EloquentConsultantRepository implements ConsultantRepository {
                             $query->where('co_sistema', 1);
                             $query->whereIn('co_tipo_usuario', UserTypes::TYPES);
                         })
-                        ->paginate(PaginationUtils::LIMIT);
+                        ->get();
     }
 
     public function nextIdentity(): ConsultantId {

@@ -4,6 +4,7 @@ namespace Shared\Infrastructure\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Backoffice\Consultant\Domain\Repositories\ConsultantRepository;
+use Backoffice\Consultant\Domain\Repositories\ConsultantByPerformanceRepository;
 
 class PersistenceProvider extends ServiceProvider
 {
@@ -24,6 +25,10 @@ class PersistenceProvider extends ServiceProvider
             'Backoffice\Consultant\Domain\Repositories\ConsultantRepository',
             'Backoffice\Consultant\Infrastructure\Persistence\Orm\Eloquent\EloquentConsultantRepository'
         );
+        $this->app->bind(
+            'Backoffice\Consultant\Domain\Repositories\ConsultantByPerformanceRepository',
+            'Backoffice\Consultant\Infrastructure\Persistence\Orm\Eloquent\EloquentConsultantByPerformanceRepository'
+        );
         
     }
     /**
@@ -35,6 +40,7 @@ class PersistenceProvider extends ServiceProvider
     {
         return [
             ConsultantRepository::class,
+            ConsultantByPerformanceRepository::class,            
         ];
     }
 }
