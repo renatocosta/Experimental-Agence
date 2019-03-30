@@ -121,7 +121,7 @@ class EloquentConsultantByPerformanceRepository implements ConsultantByPerforman
                         ->select(
                                 'user',
                                 DB::raw('MAX(net_value_invoice) AS net_value_invoice'),
-                                DB::raw('MAX(fixed_cost_consultant) AS fixed_cost_consultant'),
+                                DB::raw('ROUND(MAX(fixed_cost_consultant), 2) AS fixed_cost_consultant'),
                                 DB::raw('MAX(commisson) AS commisson'),
                                 DB::raw('ROUND(MAX(net_value_invoice - (fixed_cost_consultant + commisson)), 2) AS net_income')
                         )

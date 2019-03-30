@@ -11,7 +11,6 @@ class ConsultantByPerformanceController extends Controller
 {
 
     public function listByCriteria(Request $request, CommandBus $commandBus) {
-        
         try {
             $command = new QueryConsultantByPerformanceCommand(['user' => $request->get('username'), 'period' => ['start' => $request->get('period')['start_date'], 'end' => $request->get('period')['end_date']]]);
             $commandBus->handle($command);
