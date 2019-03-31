@@ -9,7 +9,9 @@ class ConsultantByPerformanceCalculationsCommand {
     private $data;
     
     private $service;
-     
+    
+    private $attribute_percentage;
+    
     public function __construct($data = []) {
        $this->data = $data; 
     }
@@ -24,6 +26,14 @@ class ConsultantByPerformanceCalculationsCommand {
     
     public function getDataService(): ConsultantByPerformanceServiceContract {
         return $this->service;
-    } 
+    }
+    
+    public function setShowPercentage($status) {
+        $this->attribute_percentage = $status;
+    }
+    
+    public function getShowPercentage(){
+        return $this->attribute_percentage;
+    }
 
 }
