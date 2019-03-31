@@ -12,6 +12,10 @@ class DomainEventServiceProvider extends ServiceProvider
            
             // Consultant
             ['class' => \Backoffice\Consultant\Domain\Events\ConsultantSubscriber::class, 'eventName' => 'consultant-event-created'],
+            
+            //Clients
+            ['class' => \Backoffice\Client\Domain\Events\ClientSubscriber::class, 'eventName' => 'consultant-event-created'],
+            
         ];
     }
 

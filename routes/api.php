@@ -13,5 +13,5 @@
 
 Route::group(['middleware' => ['basic_auth'], 'prefix' => 'v1'], function () {
     require base_path('bundle/Backoffice/Consultant/Infrastructure/Http/routes.php');    
-    //require base_path('bundle/Backoffice/ServiceOrder/Infrastructure/Http/routes.php');        
+    require base_path('bundle/Backoffice/Client/Infrastructure/Http/routes.php');        
 });

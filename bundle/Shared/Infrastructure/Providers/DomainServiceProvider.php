@@ -4,6 +4,7 @@ namespace Shared\Infrastructure\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Backoffice\Consultant\Domain\Services\ConsultantByPerformanceServiceContract;
+use Backoffice\Client\Domain\Services\ClientByPerformanceServiceContract;
 
 class DomainServiceProvider extends ServiceProvider
 {
@@ -24,7 +25,10 @@ class DomainServiceProvider extends ServiceProvider
             'Backoffice\Consultant\Domain\Services\ConsultantByPerformanceServiceContract',
             'Backoffice\Consultant\Domain\Services\ConsultantByPerformanceService'
         );
-        
+        $this->app->bind(
+            'Backoffice\Client\Domain\Services\ClientByPerformanceServiceContract',
+            'Backoffice\Client\Domain\Services\ClientByPerformanceService'
+        );        
     }
     /**
      * Get the services provided by the provider.
@@ -34,7 +38,8 @@ class DomainServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            ConsultantByPerformanceServiceContract::class           
+            ConsultantByPerformanceServiceContract::class,
+            ClientByPerformanceServiceContract::class            
         ];
     }
 }

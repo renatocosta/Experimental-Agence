@@ -5,6 +5,8 @@ namespace Shared\Infrastructure\Providers;
 use Illuminate\Support\ServiceProvider;
 use Backoffice\Consultant\Domain\Repositories\ConsultantRepository;
 use Backoffice\Consultant\Domain\Repositories\ConsultantByPerformanceRepository;
+use Backoffice\Client\Domain\Repositories\ClientRepository;
+use Backoffice\Client\Domain\Repositories\ClientByPerformanceRepository;
 
 class PersistenceProvider extends ServiceProvider
 {
@@ -29,7 +31,14 @@ class PersistenceProvider extends ServiceProvider
             'Backoffice\Consultant\Domain\Repositories\ConsultantByPerformanceRepository',
             'Backoffice\Consultant\Infrastructure\Persistence\Orm\Eloquent\EloquentConsultantByPerformanceRepository'
         );
-        
+        $this->app->bind(
+            'Backoffice\Client\Domain\Repositories\ClientRepository',
+            'Backoffice\Client\Infrastructure\Persistence\Orm\Eloquent\EloquentClientRepository'
+        );
+        $this->app->bind(
+            'Backoffice\Client\Domain\Repositories\ClientByPerformanceRepository',
+            'Backoffice\Client\Infrastructure\Persistence\Orm\Eloquent\EloquentClientByPerformanceRepository'
+        );        
     }
     /**
      * Get the services provided by the provider.
@@ -41,6 +50,8 @@ class PersistenceProvider extends ServiceProvider
         return [
             ConsultantRepository::class,
             ConsultantByPerformanceRepository::class,            
+            ClientRepository::class,
+            ClientByPerformanceRepository::class,              
         ];
     }
 }
