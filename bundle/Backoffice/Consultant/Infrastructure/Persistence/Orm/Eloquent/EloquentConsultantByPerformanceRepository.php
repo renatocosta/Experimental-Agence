@@ -28,6 +28,7 @@ class EloquentConsultantByPerformanceRepository implements ConsultantByPerforman
 
         $query = DB::table("cao_usuario AS u")
                 ->select('u.co_usuario',
+                        'u.no_usuario',
                         'os.co_os',
                         'os.co_sistema',
                         'os.dt_sol',
@@ -79,6 +80,7 @@ class EloquentConsultantByPerformanceRepository implements ConsultantByPerforman
 
         $query = DB::table(DB::raw("(" . $raw_query_net_invoice . ") as tab_invoice"))
                 ->select('co_usuario',
+                'no_usuario',        
                 'co_os',
                 'co_sistema',
                 'dt_sol',
@@ -100,7 +102,7 @@ class EloquentConsultantByPerformanceRepository implements ConsultantByPerforman
 
         $query = DB::table(DB::raw("(" . $raw_query_comission . ") as tab_sum"))
                         ->select(
-                                DB::raw('MAX(co_usuario) AS user'),
+                                DB::raw('MAX(no_usuario) AS user'),
                                 DB::raw('SUM(net_value_invoice) AS net_value_invoice'),
                                 DB::raw('SUM(fixed_cost_consultant) AS fixed_cost_consultant'),
                                 DB::raw('SUM(commisson) AS commisson')

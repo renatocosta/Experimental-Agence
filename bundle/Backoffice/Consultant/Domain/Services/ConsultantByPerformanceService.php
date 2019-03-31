@@ -41,7 +41,7 @@ class ConsultantByPerformanceService implements ConsultantByPerformanceServiceCo
         $total = $this->getSumByAttribute();        
         
         $this->collection = $this->collection->map(function($item) use ($total) {
-            $item['percentage'] = $item['net_value_invoice'] * 100 / $total;
+            $item['percentage'] = number_format(($item['net_value_invoice'] * 100 / $total), 2, '.', '.');
             return $item;
         });        
         
