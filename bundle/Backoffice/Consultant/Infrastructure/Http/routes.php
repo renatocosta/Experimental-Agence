@@ -6,5 +6,6 @@ Route::group(['namespace' => 'Backoffice\Consultant\Infrastructure\Http\Controll
 
   Route::get('consultant', ['uses' => 'ConsultantController@getAll']);      
   Route::post('consultant/performance', ['uses' => 'ConsultantByPerformanceController@listByCriteria']);  
-  
+  Route::post('consultant/performanceandaverage', ['uses' => 'ConsultantByPerformanceController@listByCriteriaAndAverage']);  
+ 
 });    

@@ -180,7 +180,8 @@ return [
         Shared\Infrastructure\Providers\CommandBusServiceProvider::class,        
         Shared\Infrastructure\Providers\PersistenceProvider::class,
         Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,        
-        Shared\Infrastructure\Providers\DomainEventServiceProvider::class,        
+        Shared\Infrastructure\Providers\DomainEventServiceProvider::class,  
+        Shared\Infrastructure\Providers\DomainServiceProvider::class       
     ],
 
     /*

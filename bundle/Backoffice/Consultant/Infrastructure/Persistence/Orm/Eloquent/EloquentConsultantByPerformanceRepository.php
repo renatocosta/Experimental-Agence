@@ -137,7 +137,7 @@ class EloquentConsultantByPerformanceRepository implements ConsultantByPerforman
         $comission = $this->getQueryComission($net_invoice->toSql());
         $sum = $this->getResultBySum($comission->toSql());
         $result = $this->getResult($net_invoice, $sum->toSql());
-
+        
         return $result;
     }    
 
