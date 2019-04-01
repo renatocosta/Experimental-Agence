@@ -39,7 +39,7 @@ class DomainServiceProvider extends ServiceProvider
     {
         return [
             ConsultantByPerformanceServiceContract::class,
-            ClientByPerformanceServiceContract::class            
+            ClientByPerformanceServiceContract::class                   
         ];
     }
 }

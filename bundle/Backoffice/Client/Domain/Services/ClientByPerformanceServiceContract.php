@@ -6,7 +6,7 @@ interface ClientByPerformanceServiceContract
 {
   
     /**
-     * Give an attribute some of collection then calculate its average
+     * Given an attribute some of collection then calculate its average
      * @return float
      */
     public function getAverage(); 
@@ -17,6 +17,22 @@ interface ClientByPerformanceServiceContract
      */
     public function setFilterColumns($columns = []);
     
+    /**
+     * Given an attribute some of collection then calculate its percentage
+     */
+    public function addPercentage();     
+
+    /**
+     * @param string $attribute
+     */
+    public function setSumByAttribute(string $attribute);
+    
+    /**
+     * Given some attribute of collection then sum all of them 
+     * @return float 
+     */
+    public function getSumByAttribute();
+
     /**
      * Return total of collection
      * @return int 

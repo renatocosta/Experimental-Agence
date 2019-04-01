@@ -18,9 +18,8 @@ class CommandBusServiceProvider extends ServiceProvider
                 
             // Clients
             \Backoffice\Client\Application\Command\QueryClientCommand::class => \Backoffice\Client\Application\Command\Handler\QueryClientCommandHandler::class,
-            \Backoffice\Client\Application\Command\QueryClientByPerformanceCommand::class => \Backoffice\Client\Application\Command\Handler\QueryClientByPerformanceCommandHandler::class,            
-            \Backoffice\Client\Application\Command\ClientByPerformanceCalculationsCommand::class => \Backoffice\Client\Application\Command\Handler\ClientByPerformanceCalculationsCommandHandler::class            
-                
+            \Backoffice\Client\Application\Command\QueryClientByPerformanceCommand::class => \Backoffice\Client\Application\Command\Handler\QueryClientByPerformanceCommandHandler::class,
+            \Backoffice\Client\Application\Command\ClientByPerformanceCalculationsCommand::class => \Backoffice\Client\Application\Command\Handler\ClientByPerformanceCalculationsCommandHandler::class,                            
         ];
     }
 

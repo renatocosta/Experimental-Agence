@@ -26,40 +26,25 @@ class EloquentClientByPerformanceRepository implements ClientByPerformanceReposi
      */
     private function getQueryInvoice($criteria = []) {
 
-        $query = DB::table("cao_usuario AS u")
-                ->select('u.co_usuario',
-                        'os.co_os',
-                        'os.co_sistema',
-                        'os.dt_sol',
-                        'fat.valor',
-                        'fat.total_imp_inc',
-                        'sal.brut_salario AS fixed_cost_Client',
-                        DB::raw('ROUND(fat.valor - (fat.total_imp_inc * fat.valor) / 100, 2) AS net_value_invoice'),
-                        'fat.comissao_cn AS comissao_percent')
-                ->join('permissao_sistema AS ps', function ($join) {
-                    $join->on('u.co_usuario', '=', 'ps.co_usuario');
-                })
-                ->join('cao_os AS os', function ($join) {
-                    $join->on('u.co_usuario', '=', 'os.co_usuario');
-                })
+        $query = DB::table("cao_cliente AS c")
+                ->select('c.co_cliente',
+                        'c.no_razao AS user',
+                        DB::raw('ROUND(fat.valor - (fat.total_imp_inc * fat.valor) / 100, 2) AS net_income'))
                 ->join('cao_fatura AS fat', function ($join) {
-                    $join->on('os.co_os', '=', 'fat.co_os');
-                })
-                ->join('cao_salario AS sal', function ($join) {
-                    $join->on('u.co_usuario', '=', 'sal.co_usuario');
-                })
-                ->where('ps.in_ativo', 'S')
-                ->where('ps.co_sistema', 1)
-                ->whereIn('ps.co_tipo_usuario', UserTypes::TYPES);
+                    $join->on('c.co_cliente', '=', 'fat.co_cliente');
+                })                
+                ->join('cao_os AS os', function ($join) {
+                    $join->on('fat.co_os', '=', 'os.co_os');
+                });
 
         if (!empty($criteria['user'])) {
-            $query->whereIn('u.co_usuario', $criteria['user']);
+            $query->whereIn('c.co_cliente', $criteria['user']);
         }
 
         if (!empty($criteria['period'])) {
 
             if (!empty($criteria['period']['start'])) {
-                $query->where('dt_sol', '>=', $criteria['period']['start'] .' 00:00:00');
+                $query->where('dt_sol', '>=', $criteria['period']['start'] . ' 00:00:00');
             }
 
             if (!empty($criteria['period']['end'])) {
@@ -68,65 +53,23 @@ class EloquentClientByPerformanceRepository implements ClientByPerformanceReposi
         }
 
         return $query;
-    }
-
-    /**
-     * Building a raw query to get comission rows
-     * @param string $raw_query_net_invoice
-     * @return model
-     */
-    private function getQueryComission($raw_query_net_invoice) {
-
-        $query = DB::table(DB::raw("(" . $raw_query_net_invoice . ") as tab_invoice"))
-                ->select('co_usuario',
-                'co_os',
-                'co_sistema',
-                'dt_sol',
-                'valor',
-                'total_imp_inc',
-                'fixed_cost_Client',
-                'net_value_invoice',
-                DB::raw('ROUND((comissao_percent * net_value_invoice / 100), 2) AS commisson'));
-
-        return $query;
-    }
-
-    /**
-     * Building a raw query to sum all of comission rows
-     * @param string $raw_query_comission
-     * @return model
-     */
-    private function getResultBySum($raw_query_comission) {
-
-        $query = DB::table(DB::raw("(" . $raw_query_comission . ") as tab_sum"))
-                        ->select(
-                                DB::raw('MAX(co_usuario) AS user'),
-                                DB::raw('SUM(net_value_invoice) AS net_value_invoice'),
-                                DB::raw('SUM(fixed_cost_Client) AS fixed_cost_Client'),
-                                DB::raw('SUM(commisson) AS commisson')
-                        )->groupBy('co_usuario');
-
-        return $query;
+        
     }
 
     /**
      * Building a query to get the results
-     * @param model $bindings
-     * @param string $raw_query_sum
+     * @param string $raw_query_invoice
      * @return model
      */
-    private function getResult($bindings, $raw_query_sum) {
+    private function getResult($raw_query_invoice) {
 
-        $query = DB::table(DB::raw("(" . $raw_query_sum . ") as tab_result"))
+        $query = DB::table(DB::raw("(" . $raw_query_invoice->toSql() . ") as tab_result"))
                         ->select(
                                 'user',
-                                DB::raw('MAX(net_value_invoice) AS net_value_invoice'),
-                                DB::raw('ROUND(MAX(fixed_cost_Client), 2) AS fixed_cost_Client'),
-                                DB::raw('MAX(commisson) AS commisson'),
-                                DB::raw('ROUND(MAX(net_value_invoice - (fixed_cost_Client + commisson)), 2) AS net_income')
+                                DB::raw('SUM(net_income) AS net_income')
                         )
-                        ->mergeBindings($bindings)
-                        ->groupBy('user')->get();
+                        ->mergeBindings($raw_query_invoice)
+                        ->groupBy('co_cliente')->orderBy('net_income', 'DESC')->get();
 
         return $query;
     }
@@ -134,11 +77,9 @@ class EloquentClientByPerformanceRepository implements ClientByPerformanceReposi
     public function getByCriteria($filter = []) {
 
         $net_invoice = $this->getQueryInvoice($filter);
-        $comission = $this->getQueryComission($net_invoice->toSql());
-        $sum = $this->getResultBySum($comission->toSql());
-        $result = $this->getResult($net_invoice, $sum->toSql());
-        
+        $result = $this->getResult($net_invoice);
+
         return $result;
-    }    
+    }
 
 }
