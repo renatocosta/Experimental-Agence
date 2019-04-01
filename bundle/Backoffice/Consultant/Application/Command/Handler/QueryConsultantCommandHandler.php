@@ -4,6 +4,7 @@ namespace Backoffice\Consultant\Application\Command\Handler;
 
 use Backoffice\Consultant\Domain\Repositories\ConsultantRepository;
 use Backoffice\Consultant\Application\Command\QueryConsultantCommand;
+use Backoffice\Consultant\Domain\Entity\Consultant;
 
 class QueryConsultantCommandHandler {
 
