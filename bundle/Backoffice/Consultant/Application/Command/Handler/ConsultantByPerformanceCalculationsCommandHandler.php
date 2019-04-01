@@ -21,6 +21,11 @@ class ConsultantByPerformanceCalculationsCommandHandler {
     public function handle(ConsultantByPerformanceCalculationsCommand $command)
     {  
        $this->service->setInitial($command->getData());
+       
+       if($command->getShowPercentage()){
+        $this->service->addPercentage();
+       }
+       
        $command->setService($this->service);
     }    
     
