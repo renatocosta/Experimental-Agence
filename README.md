@@ -4,7 +4,7 @@ Endpoint: https://testing-233014.appspot.com
 
 Follow Postman file to import and then run REST services as known as bellow
 
-[docs/WirecardApi.postman_collection](docs/WirecardApi.postman_collection.json) It is for documentation as well.
+[docs/AgenceApi.postman_collection.json](docs/AgenceApi.postman_collection.json) It is for documentation as well.
 
 ## Google Cloud Platform as environment 
 
@@ -21,10 +21,6 @@ Follow Postman file to import and then run REST services as known as bellow
 ## Database
 
 MySQL 2nd Gen 5.7		
-
- Laravel Migrations versioning schema
-
- running it: php artisan migrate
 
 ## Application architecture
 
@@ -46,27 +42,11 @@ MySQL 2nd Gen 5.7
 
  src/Shared 
 
-## Unit testing
-
- dir: /var/www/backend/agence
-
- running: ./vendor/bin/phpunit --testdox
-
 ## DDD -Domain Driven Design 
 * Domain Event
 * CQRS - Command Query Responsibility Segregation
 * Design patterns as Repository, Dependency Injection, Factory, Facades, Services Locators
 * SOLID - Single Responsibility, Dependency inversion principle, Open–closed principle
-
-## Docker
-
- docker pull 216254431/wirecard-gcloud-php7
-
- docs/docker-compose.yml
-
- docker-compose up -d
-
- http://localhost:8080
 
 ## Improvements
 

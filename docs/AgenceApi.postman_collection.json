@@ -1,0 +1,183 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Agence Api",
+		"_postman_id": "20b09335-4182-9e73-140f-c14f27a570cb",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consultant",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"url": "{{domain}}api/v1/consultant",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":[],\"period\":{\"start_date\":\"2005-01-01\", \"end_date\":\"2006-12-01\"} }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by performance",
+					"request": {
+						"url": "{{domain}}api/v1/consultant/performance/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":[],\"period\":{\"start_date\":\"2005-01-01\", \"end_date\":\"2006-12-01\"} }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by performance and average",
+					"request": {
+						"url": "{{domain}}api/v1/consultant/performanceandaverage/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":[],\"period\":{\"start_date\":\"2005-01-01\", \"end_date\":\"2006-12-01\"} }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by performance and percentage",
+					"request": {
+						"url": "{{domain}}api/v1/consultant/performanceandpercentage/ ",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":[],\"period\":{\"start_date\":\"2002-01-01\", \"end_date\":\"2009-12-01\"} }"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"url": "{{domain}}api/v1/client",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":[],\"period\":{\"start_date\":\"2005-01-01\", \"end_date\":\"2006-12-01\"} }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by performance",
+					"request": {
+						"url": "{{domain}}api/v1/client/performance/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":[6947,3],\"period\":{\"start_date\":\"2005-01-01\", \"end_date\":\"2006-12-01\"} }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by performance and average",
+					"request": {
+						"url": "{{domain}}api/v1/client/performanceandaverage/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":[6947,3],\"period\":{\"start_date\":\"2005-01-01\", \"end_date\":\"2006-12-01\"} }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by performance and percentage",
+					"request": {
+						"url": "{{domain}}api/v1/client/performanceandpercentage/ ",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":[6947,3],\"period\":{\"start_date\":\"2005-01-01\", \"end_date\":\"2006-12-01\"} }"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
