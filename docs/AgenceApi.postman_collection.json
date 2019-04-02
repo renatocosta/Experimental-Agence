@@ -14,7 +14,7 @@
 				{
 					"name": "Get all",
 					"request": {
-						"url": "{{domain}}api/v1/consultant",
+						"url": "{{domain}}/api/v1/consultant",
 						"method": "GET",
 						"header": [
 							{
@@ -34,7 +34,7 @@
 				{
 					"name": "Get by performance",
 					"request": {
-						"url": "{{domain}}api/v1/consultant/performance/",
+						"url": "{{domain}}/api/v1/consultant/performance/",
 						"method": "POST",
 						"header": [
 							{
@@ -54,7 +54,7 @@
 				{
 					"name": "Get by performance and average",
 					"request": {
-						"url": "{{domain}}api/v1/consultant/performanceandaverage/",
+						"url": "{{domain}}/api/v1/consultant/performanceandaverage/",
 						"method": "POST",
 						"header": [
 							{
@@ -74,7 +74,7 @@
 				{
 					"name": "Get by performance and percentage",
 					"request": {
-						"url": "{{domain}}api/v1/consultant/performanceandpercentage/ ",
+						"url": "{{domain}}/api/v1/consultant/performanceandpercentage/ ",
 						"method": "POST",
 						"header": [
 							{
@@ -100,7 +100,7 @@
 				{
 					"name": "Get all",
 					"request": {
-						"url": "{{domain}}api/v1/client",
+						"url": "{{domain}}/api/v1/client",
 						"method": "GET",
 						"header": [
 							{
@@ -120,7 +120,7 @@
 				{
 					"name": "Get by performance",
 					"request": {
-						"url": "{{domain}}api/v1/client/performance/",
+						"url": "{{domain}}/api/v1/client/performance/",
 						"method": "POST",
 						"header": [
 							{
@@ -160,7 +160,7 @@
 				{
 					"name": "Get by performance and percentage",
 					"request": {
-						"url": "{{domain}}api/v1/client/performanceandpercentage/ ",
+						"url": "{{domain}}/api/v1/client/performanceandpercentage/ ",
 						"method": "POST",
 						"header": [
 							{
