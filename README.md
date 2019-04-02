@@ -53,5 +53,4 @@ MySQL 2nd Gen 5.7
 * Add UUID for all entities in order to be identified globally
 * Implement middleware security
 * Speed up end-to-end application
-* Increasing unit testing coverage
-* Set up database transaction in order to ensure consistent data
+* Add unit testing coverage
